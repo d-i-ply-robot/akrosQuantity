@@ -1,0 +1,7 @@
+help
+create-project --name "Test Project 1"
+create-project --name "Another Project"
+list-projects
+delete-project --id 1
+list-projects
+quit 
