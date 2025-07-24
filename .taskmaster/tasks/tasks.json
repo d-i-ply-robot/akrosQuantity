@@ -1,0 +1,126 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": "1",
+        "title": "Implement core project management shell commands",
+        "description": "Implement create-project, list-projects, view-project, delete-project commands",
+        "status": "done",
+        "priority": "high",
+        "details": "All 4 required project management commands have been implemented with Spring Boot integration and database persistence."
+      },
+      {
+        "id": "2",
+        "title": "Implement file upload command with multi-format support",
+        "description": "Implement upload-file and list-files commands with PDF, DWG, DXF format detection",
+        "status": "done",
+        "priority": "high",
+        "details": "File upload functionality implemented with format detection, metadata storage, and project association."
+      },
+      {
+        "id": "2.5",
+        "title": "Implement model file decomposition into quantities",
+        "description": "Add commands to analyze uploaded model files and extract geometric elements for quantification",
+        "status": "pending",
+        "priority": "high",
+        "details": "Implement commands like 'decompose-file' to analyze DXF/DWG/PDF files and extract geometric entities (lines, polylines, circles, arcs) that represent construction elements. Include 'list-elements' command to display extracted elements with properties (coordinates, lengths, areas). This decomposition should work with existing file upload system and prepare data for quantity calculations."
+      },
+      {
+        "id": "3",
+        "title": "Implement model area definition command for PDF drawings",
+        "description": "Implement coordinate input for PDF drawings with area definition",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": "4",
+        "title": "Implement PDF stitching functionality using BoofCV",
+        "description": "Implement feature detection and alignment for PDF stitching",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": "5",
+        "title": "Implement project analysis command for element decomposition",
+        "description": "Implement element decomposition by line properties",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": "6",
+        "title": "Implement quantity calculation engine with metric units",
+        "description": "Implement calculation engine with meters/m² units",
+        "status": "pending",
+        "priority": "high"
+      },
+      {
+        "id": "7",
+        "title": "Implement list-quantities command to display results table",
+        "description": "Implement results table with group properties",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": "8",
+        "title": "Implement get-elements command to show coordinates",
+        "description": "Implement coordinate display for quantity highlighting",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": "9",
+        "title": "Set up PostgreSQL database integration",
+        "description": "Set up PostgreSQL with JPA repositories and entities",
+        "status": "pending",
+        "priority": "low"
+      },
+      {
+        "id": "10",
+        "title": "Add required library dependencies",
+        "description": "Add PDFBox, Kabeja, Teigha, BoofCV dependencies to build.gradle",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": "11",
+        "title": "Implement comprehensive testing suite",
+        "description": "Implement JUnit 5 and Spring Boot Test",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": "12",
+        "title": "Create file management system",
+        "description": "Create metadata storage and local/blob storage options",
+        "status": "pending",
+        "priority": "low"
+      },
+      {
+        "id": "13",
+        "title": "Implement error handling and validation",
+        "description": "Implement CLI commands with proper user feedback",
+        "status": "pending",
+        "priority": "medium"
+      },
+      {
+        "id": "14",
+        "title": "Add logging and debugging capabilities",
+        "description": "Add logging throughout the application",
+        "status": "pending",
+        "priority": "low"
+      },
+      {
+        "id": "15",
+        "title": "Create RESTful API controllers",
+        "description": "Create controllers as foundation for Phase 2 backend development",
+        "status": "pending",
+        "priority": "low"
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-24T09:23:54.855Z",
+      "updated": "2025-07-24T09:23:54.855Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+package com.akros.construction.model;
+
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@Entity
+@Table(name = "project_files")
+public class ProjectFile {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
+
+    @Column(nullable = false)
+    private String fileName;
+
+    @Column(nullable = false)
+    private String originalFileName;
+
+    @Column(nullable = false)
+    private String format; // PDF, DWG, DXF
+
+    @Column(nullable = false)
+    private String author;
+
+    @Column(nullable = false)
+    private String discipline;
+
+    @Column(nullable = false)
+    private Long fileSize;
+
+    @Lob
+    @Column(nullable = false)
+    private byte[] content;
+
+    @Column(nullable = false)
+    private LocalDateTime uploadedAt;
+
+    // Model area coordinates for PDF files
+    private Double xMin;
+    private Double yMin;
+    private Double xMax;
+    private Double yMax;
+
+    public ProjectFile(Project project, String fileName, String originalFileName, 
+                      String format, String author, String discipline, 
+                      Long fileSize, byte[] content) {
+        this.project = project;
+        this.fileName = fileName;
+        this.originalFileName = originalFileName;
+        this.format = format;
+        this.author = author;
+        this.discipline = discipline;
+        this.fileSize = fileSize;
+        this.content = content;
+        this.uploadedAt = LocalDateTime.now();
+    }
+} 

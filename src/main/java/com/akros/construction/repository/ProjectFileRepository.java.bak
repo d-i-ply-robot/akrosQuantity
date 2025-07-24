@@ -1,0 +1,13 @@
+package com.akros.construction.repository;
+
+import java.util.List;
+
+import com.akros.construction.model.ProjectFile;
+
+@Repository
+public interface ProjectFileRepository extends JpaRepository<ProjectFile, Long> {
+    List<ProjectFile> findByProjectId(Long projectId);
+    List<ProjectFile> findByProjectIdAndFormat(Long projectId, String format);
+    List<ProjectFile> findByProjectIdAndAuthor(Long projectId, String author);
+    List<ProjectFile> findByProjectIdAndDiscipline(Long projectId, String discipline);
+} 

@@ -1,38 +1,38 @@
 package com.akros.construction.service;
 
-import com.akros.construction.model.Project;
-import com.akros.construction.repository.ProjectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@Service
-@Transactional
+import com.akros.construction.model.Project;
+
 public class ProjectService {
-    private final ProjectRepository projectRepository;
-
-    @Autowired
-    public ProjectService(ProjectRepository projectRepository) {
-        this.projectRepository = projectRepository;
-    }
+    private final Map<Long, Project> projects = new HashMap<>();
+    private long nextId = 1;
 
     public Project createProject(String name) {
-        Project project = new Project(name);
-        return projectRepository.save(project);
+        Project project = new Project(nextId++, name);
+        projects.put(project.getId(), project);
+        return project;
     }
 
     public List<Project> listProjects() {
-        return projectRepository.findAll();
+        return new ArrayList<>(projects.values());
     }
 
     public Project getProject(Long id) {
-        return projectRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Project not found with id: " + id));
+        Project project = projects.get(id);
+        if (project == null) {
+            throw new RuntimeException("Project not found with id: " + id);
+        }
+        return project;
     }
 
     public void deleteProject(Long id) {
-        projectRepository.deleteById(id);
+        if (!projects.containsKey(id)) {
+            throw new RuntimeException("Project not found with id: " + id);
+        }
+        projects.remove(id);
     }
 } 
